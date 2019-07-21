@@ -1,14 +1,19 @@
 object question7 extends App {
-def flatten(listmain: List[Int]): List[Int] = {
-def listmain(lists: List[Int]): List[Int] = {
-
-/*  list1 match {
-case List() => list2
-case x :: xs1 => x :: flatten(xs1, list2)
-}  
-*/
+  def flatten(listmain: List[Any]): List[Any] = {
+    def listmain(lists: List[Any]): List[Any] = {
 
 
-val merge = flatten(List(List(1, 1), 2, List(3, List(5, 8))))
-println(merge)
+      for (i <- lists) {
+
+        i match {
+          case List() => i
+          case x :: xs1 => x :: listmain(xs1, i)
+        }
+      }
+
+
+      val merge = flatten(List(List(1, 1), 2, List(3, List(5, 8))))
+      println(merge)
+    }
+  }
 }
