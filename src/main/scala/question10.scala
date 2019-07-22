@@ -7,17 +7,17 @@ object question10 extends App {
 
   def encode(list: List[Symbol]): List[Any] = {
     var c = 0
-    var list1 = ListBuffer[Any]()
-    var pair = (1,'k)
+    val list1 = ListBuffer[Any]()
+    //var pair = (1,'k)
     for (i <-0 to list.length) {
       c += 1
       if (list(i) != list(i+1)) {
-         pair = (c,list(i))
+       val pair =Tuple2(c,list(i))
         c= 0
+        list1 +=  pair
       }
-      val listy = listy::pair
+
     }
-
-
+    List(list1.toString)
   }
 }
